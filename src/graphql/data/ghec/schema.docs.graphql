@@ -6853,7 +6853,7 @@ input CopyProjectV2Input {
   """
   The owner ID of the new project.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "OrganizationOrUser")
+  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"])
 
   """
   The ID of the source Project to copy.
@@ -7902,7 +7902,7 @@ input CreateProjectV2Input {
   """
   The owner ID to create the project under.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "OrganizationOrUser")
+  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"])
 
   """
   The repository to link the project to.
@@ -48824,6 +48824,11 @@ commits must first be pushed to another ref where the checks pass.
 """
 type RequiredStatusChecksParameters {
   """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean!
+
+  """
   Status checks that are required.
   """
   requiredStatusChecks: [StatusCheckConfiguration!]!
@@ -48841,6 +48846,11 @@ Choose which status checks must pass before the ref is updated. When enabled,
 commits must first be pushed to another ref where the checks pass.
 """
 input RequiredStatusChecksParametersInput {
+  """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean
+
   """
   Status checks that are required.
   """
@@ -63697,6 +63707,11 @@ Require all changes made to a targeted branch to pass the specified workflows be
 """
 type WorkflowsParameters {
   """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean!
+
+  """
   Workflows that must pass for this rule to pass.
   """
   workflows: [WorkflowFileReference!]!
@@ -63706,6 +63721,11 @@ type WorkflowsParameters {
 Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
 """
 input WorkflowsParametersInput {
+  """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean
+
   """
   Workflows that must pass for this rule to pass.
   """
