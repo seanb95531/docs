@@ -172,8 +172,6 @@ When creating databases for Python you must ensure:
 
 * You have Python 3 installed and available to the {% data variables.product.prodname_codeql %} extractor.
 * You have the version of Python used by your code installed.
-* You have access to the [pip](https://pypi.org/project/pip/) packaging management system and can install any packages that the codebase depends on.
-* You have installed the [virtualenv](https://pypi.org/project/virtualenv/) pip module.
 
 In the command line you must specify `--language=python`. For example:
 
@@ -388,13 +386,11 @@ Once you have created a {% data variables.product.prodname_codeql %} database us
 
 ### Example of creating a {% data variables.product.prodname_codeql %} database using indirect build tracing
 
-{% ifversion ghas-for-azure-devops %}
 {% note %}
 
 **Note:** If you use Azure DevOps pipelines, the simplest way to create a {% data variables.product.prodname_codeql %} database is to use {% data variables.product.prodname_ghas_azdo %}. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 {% endnote %}
-{% endif %}
 
 The following example shows how you could use indirect build tracing in an Azure DevOps pipeline to create a {% data variables.product.prodname_codeql %} database:
 
