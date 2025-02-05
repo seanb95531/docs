@@ -3,6 +3,7 @@ import Cookies from 'src/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
 import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
+import { getExperimentVariationForContext } from './experiments/experiment'
 import { EventType, EventPropsByType } from '../types'
 
 const COOKIE_NAME = '_docs-events'
@@ -110,6 +111,8 @@ export function sendEvent<T extends EventType>({
       color_mode_preference: getColorModePreference(),
       os_preference: Cookies.get('osPreferred'),
       code_display_preference: Cookies.get('annotate-mode'),
+
+      experiment_variation: getExperimentVariationForContext(getMetaContent('path-language')),
     },
 
     ...props,
@@ -136,7 +139,7 @@ function getReferrer(documentReferrer: string) {
     // new URL() throws an error if not a valid URL
     const referrerUrl = new URL(documentReferrer)
     if (!referrerUrl.pathname || referrerUrl.pathname === '/') {
-      return referrerUrl.origin + previousPath
+      return location.origin + previousPath
     }
   } catch {}
   return documentReferrer

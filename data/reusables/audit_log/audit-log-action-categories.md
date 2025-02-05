@@ -5,9 +5,7 @@
 | `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories). |
 | {% endif %} |
 | `artifact` | Contains activities related to {% data variables.product.prodname_actions %} workflow run artifacts. |
-| {% ifversion audit-log-streaming %} |
 | `audit_log_streaming`  | Contains activities related to streaming audit logs for organizations in an enterprise account. |
-| {% endif %} |
 | {% ifversion fpt or ghec %} |
 | `billing` | Contains activities related to an organization's billing. |
 | {% endif %} |
@@ -155,7 +153,7 @@
 | {% ifversion ghec or ghes %} |
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise. |
 | {% endif %} |
-| {% ifversion custom-repository-roles %} |
+| {% ifversion ghec or ghes %} |
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization). |
 | {% endif %} |
 | {% ifversion ghec or ghes %} |
@@ -187,6 +185,6 @@
 | {% endif %} |
 | `user` | Contains activities related to users in an enterprise or organization. |
 | {% ifversion ghec or ghes %} |
-| `user_license` | Contains activities related to a user occupying a licensed seat in, and being a member of, an enterprise. |
+| `user_license` | Contains activities related to a user occupying a {% ifversion enterprise-licensing-language %}license{% else %}licensed seat{% endif %} in, and being a member of, an enterprise. |
 | {% endif %} |
 | `workflows` | Contains activities related to {% data variables.product.prodname_actions %} workflows. |

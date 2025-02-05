@@ -133,7 +133,7 @@ These two examples show how to calculate the total nodes in a call.
 
 {% ifversion ghes %}
 
-Rate limits are disabled by default for {% data variables.product.product_name %}. Contact your site administrator to confirm the rate limits for your instance.
+Rate limits are disabled by default for {% data variables.product.prodname_ghe_server %}. Contact your site administrator to confirm the rate limits for your instance.
 
 If you are a site administrator, you can set rate limits for your instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
 
@@ -276,10 +276,6 @@ To avoid exceeding a rate limit, you should pause at least 1 second between muta
 
 You should also subscribe to webhook events instead of polling the API for data. For more information, see [AUTOTITLE](/webhooks).
 
-{% ifversion audit-log-streaming %}
-
 You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
-
-{% endif %}
 
 {% endif %}
